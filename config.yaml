@@ -1,0 +1,38 @@
+# Modbus TCP 模拟器配置文件
+server:
+  host: "0.0.0.0"
+  port: 1502
+  unit_id: 1
+
+# 模拟数据配置
+data:
+  # 线圈状态 (Coils) - 地址范围 0-9999
+  coils:
+    start_address: 0
+    count: 10000
+    initial_value: false
+    
+  # 离散输入 (Discrete Inputs) - 地址范围 10000-19999
+  discrete_inputs:
+    start_address: 10000
+    count: 10000
+    initial_value: false
+    
+  # 保持寄存器 (Holding Registers) - 地址范围 40000-49999
+  holding_registers:
+    start_address: 40000
+    count: 10000
+    initial_value: 0
+    
+  # 输入寄存器 (Input Registers) - 地址范围 30000-39999
+  input_registers:
+    start_address: 30000
+    count: 10000
+    initial_value: 0
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/simsrv.log"
+  rotation: "10 MB"
+  retention: "7 days"
